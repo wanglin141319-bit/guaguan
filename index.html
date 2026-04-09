@@ -281,6 +281,10 @@ body{
   align-items:center;justify-content:center;gap:10px;
   position:relative;overflow:hidden;
 }
+.product-img img{
+  width:100%;height:100%;object-fit:cover;
+  position:relative;z-index:1;
+}
 .product-img::before{
   content:'';position:absolute;inset:0;
   background:
@@ -777,8 +781,7 @@ body{
   <div class="products-grid">
     <div class="product-card fade-up">
       <div class="product-img">
-        <span class="product-emoji">&#128024;</span>
-        <span class="product-symbol">象</span>
+        <img src="images/产品-大象.jpg" alt="招财大象">
       </div>
       <div class="product-info">
         <h3>招财大象</h3>
@@ -787,8 +790,7 @@ body{
     </div>
     <div class="product-card fade-up">
       <div class="product-img">
-        <span class="product-emoji">&#129413;</span>
-        <span class="product-symbol">孔雀</span>
+        <img src="images/产品-孔雀.jpg" alt="开运孔雀">
       </div>
       <div class="product-info">
         <h3>开运孔雀</h3>
@@ -797,8 +799,7 @@ body{
     </div>
     <div class="product-card fade-up">
       <div class="product-img">
-        <span class="product-emoji">&#129346;</span>
-        <span class="product-symbol">葫芦</span>
+        <img src="images/产品-葫芦.jpg" alt="福禄葫芦">
       </div>
       <div class="product-info">
         <h3>福禄葫芦</h3>
@@ -807,18 +808,16 @@ body{
     </div>
     <div class="product-card fade-up">
       <div class="product-img">
-        <span class="product-emoji">&#128142;</span>
-        <span class="product-symbol">聚宝</span>
+        <img src="images/产品-罗盘.jpg" alt="风水罗盘">
       </div>
       <div class="product-info">
-        <h3>聚宝盆</h3>
-        <p>吸纳财气，源源不断<br>置于财位，财源广进</p>
+        <h3>风水罗盘</h3>
+        <p>堪舆专用，精准定向<br>专业调理，必备法器</p>
       </div>
     </div>
     <div class="product-card fade-up">
       <div class="product-img">
-        <span class="product-emoji">&#129532;</span>
-        <span class="product-symbol">铜钱</span>
+        <img src="images/产品-铜钱葫芦.jpg" alt="铜钱葫芦">
       </div>
       <div class="product-info">
         <h3>铜钱葫芦</h3>
@@ -827,12 +826,11 @@ body{
     </div>
     <div class="product-card fade-up">
       <div class="product-img">
-        <span class="product-emoji">&#129503;</span>
-        <span class="product-symbol">罗盘</span>
+        <img src="images/产品-聚宝盆.jpg" alt="聚宝盆">
       </div>
       <div class="product-info">
-        <h3>风水罗盘</h3>
-        <p>堪舆专用，精准定向<br>专业调理，必备法器</p>
+        <h3>聚宝盆</h3>
+        <p>吸纳财气，源源不断<br>置于财位，财源广进</p>
       </div>
     </div>
   </div>
