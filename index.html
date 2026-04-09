@@ -453,12 +453,46 @@ body{
   .about-features{grid-template-columns:repeat(3,1fr);gap:24px}
 }
 @media(max-width:600px){
-  .nav-links{display:none}
+  .nav-phone{display:none}
   .mobile-toggle{display:flex}
   .services-grid,.products-grid{grid-template-columns:1fr}
   .about-features{grid-template-columns:1fr;gap:28px}
-  .hero-title{letter-spacing:12px}
-  .hero-subtitle{letter-spacing:8px}
+  .hero-title{letter-spacing:10px}
+  .hero-subtitle{letter-spacing:6px}
+}
+
+/* ========== 手机端导航菜单 ========== */
+@media(max-width:600px){
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:64px;left:0;width:100%;
+    background:rgba(10,22,40,0.97);
+    backdrop-filter:blur(16px);
+    flex-direction:column;
+    align-items:center;
+    gap:0;
+    padding:16px 0 24px;
+    border-bottom:1px solid rgba(240,192,96,0.15);
+  }
+  .nav-links.open{display:flex}
+  .nav-links li{width:100%;text-align:center}
+  .nav-links a{
+    display:block;
+    padding:14px 24px;
+    font-size:15px;letter-spacing:3px;
+    border-bottom:1px solid rgba(240,192,96,0.06);
+  }
+  .nav-links a::after{display:none}
+  /* 汉堡动画 */
+  .mobile-toggle span{transition:0.3s}
+  .mobile-toggle.active span:nth-child(1){
+    transform:translateY(7px) rotate(45deg);
+  }
+  .mobile-toggle.active span:nth-child(2){opacity:0}
+  .mobile-toggle.active span:nth-child(3){
+    transform:translateY(-7px) rotate(-45deg);
+  }
 }
 </style>
 </head>
@@ -766,6 +800,24 @@ window.addEventListener('scroll',()=>{
   nav.style.background=window.scrollY>60
     ?'rgba(10,22,40,0.97)':'rgba(10,22,40,0.85)';
 });
+
+// ========================
+// 手机端汉堡菜单
+// ========================
+const mobileToggle = document.querySelector('.mobile-toggle');
+const navLinks = document.querySelector('.nav-links');
+if(mobileToggle && navLinks){
+  mobileToggle.addEventListener('click',()=>{
+    const isOpen = navLinks.classList.toggle('open');
+    mobileToggle.classList.toggle('active', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(link=>{
+    link.addEventListener('click',()=>{
+      navLinks.classList.remove('open');
+      mobileToggle.classList.remove('active');
+    });
+  });
+}
 
 // ========================
 // 滚动淡入动画
