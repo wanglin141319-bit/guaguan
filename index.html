@@ -46,6 +46,9 @@ body{
   border-bottom:1px solid rgba(240,192,96,0.12);
   transition:background 0.4s;
 }
+/* 导航当前页高亮 */
+.nav-links a.active{color:var(--gold)}
+.nav-links a.active::after{width:100%}
 .nav-inner{
   max-width:1200px;margin:0 auto;
   display:flex;justify-content:space-between;align-items:center;
@@ -410,13 +413,133 @@ body{
   50%{transform:translateY(-6px) scaleY(1.04)}
 }
 
-/* ===== 媒体查询：平板 ===== */
-@media(max-width:1024px){
-  .services-grid{grid-template-columns:repeat(2,1fr)}
-  .products-grid{grid-template-columns:repeat(2,1fr)}
-}
+/* ===== 媒体查询：平板（768px — iPad竖屏）===== */
 @media(max-width:900px){
   .about-features{gap:32px}
+}
+@media(max-width:768px){
+  /* 导航 */
+  .nav-phone{display:none}
+  .mobile-toggle{display:flex}
+  .nav-links{
+    display:none;
+    position:fixed;
+    top:var(--nav-h);left:0;right:0;
+    background:rgba(10,22,40,0.97);
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    flex-direction:column;align-items:center;
+    gap:0;padding:12px 0 20px;
+    border-bottom:1px solid rgba(240,192,96,0.15);
+  }
+  .nav-links.open{display:flex}
+  .nav-links li{width:100%;text-align:center}
+  .nav-links a{
+    display:block;padding:13px 24px;
+    font-size:14px;letter-spacing:3px;
+    border-bottom:1px solid rgba(240,192,96,0.06);
+  }
+  .nav-links a::after{display:none}
+
+  /* Hero */
+  .hero{min-height:100svh;padding:24px 20px}
+  .hero-tag{letter-spacing:4px;font-size:10px}
+  .hero-subtitle{letter-spacing:5px}
+  .hero-divider{margin:20px auto}
+  .mountain-layer,.ocean{display:none} /* 平板竖屏下隐藏装饰SVG */
+  .section-deco{padding-top:48px}
+
+  /* 服务 平板竖屏2列 */
+  .services-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .services{padding:28px 20px 56px}
+  .services-grid{margin-top:32px}
+
+  /* 关于 */
+  .about{padding:56px 20px}
+  .about-features{
+    grid-template-columns:repeat(3,1fr);gap:24px;
+    margin-top:40px;
+  }
+
+  /* 产品 平板竖屏2列 */
+  .products-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .products{padding:40px 20px 60px}
+  .products-grid{margin-top:32px}
+
+  /* 联系 */
+  .contact{padding:60px 20px}
+  .contact-info{margin-top:32px;gap:18px}
+  .contact-item{max-width:420px}
+
+  /* 页脚 */
+  .footer{padding:22px 20px}
+}
+
+/* ===== 媒体查询：手机（640px）===== */
+@media(max-width:640px){
+  .nav-phone{display:none}
+  .mobile-toggle{display:flex}
+  .nav-logo{font-size:20px;letter-spacing:5px}
+  .nav-logo span{font-size:9px;letter-spacing:2px}
+
+  /* 导航下拉 */
+  .nav-links{
+    display:none;
+    position:fixed;
+    top:var(--nav-h);left:0;right:0;
+    background:rgba(10,22,40,0.97);
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    flex-direction:column;align-items:center;
+    gap:0;padding:12px 0 20px;
+    border-bottom:1px solid rgba(240,192,96,0.15);
+  }
+  .nav-links.open{display:flex}
+  .nav-links li{width:100%;text-align:center}
+  .nav-links a{
+    display:block;padding:14px 24px;
+    font-size:14px;letter-spacing:3px;
+    border-bottom:1px solid rgba(240,192,96,0.06);
+  }
+  .nav-links a::after{display:none}
+
+  /* 汉堡动画 */
+  .mobile-toggle.active span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .mobile-toggle.active span:nth-child(2){opacity:0;transform:scaleX(0)}
+  .mobile-toggle.active span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+  /* Hero */
+  .hero{min-height:100svh;padding:30px 16px}
+  .hero-tag{letter-spacing:4px;font-size:10px}
+  .hero-subtitle{letter-spacing:5px}
+  .hero-divider{margin:22px auto}
+  .section-deco{padding-top:48px}
+
+  /* 服务 手机1列 */
+  .services-grid,.products-grid{grid-template-columns:1fr;gap:16px}
+  .services{padding:30px 16px 60px}
+  .services-grid{margin-top:32px}
+
+  /* 关于 */
+  .about{padding:60px 16px}
+  .about-features{
+    grid-template-columns:1fr;gap:28px;
+    margin-top:40px;
+  }
+  .about-feat-num{font-size:44px}
+  .about-text{letter-spacing:1px}
+
+  /* 产品 */
+  .products{padding:40px 16px 60px}
+  .products-grid{margin-top:32px}
+
+  /* 联系 */
+  .contact{padding:60px 16px}
+  .contact-info{margin-top:32px;gap:20px}
+  .contact-item{max-width:100%}
+  .contact-cta{margin-top:36px;letter-spacing:3px}
+
+  /* 页脚 */
+  .footer{padding:22px 16px}
+  .footer-name{font-size:16px;letter-spacing:6px}
 }
 
 /* ===== 媒体查询：手机 ===== */
