@@ -74,6 +74,12 @@ body{
 }
 .nav-links a:hover{color:var(--gold)}
 .nav-links a:hover::after{width:100%}
+.nav-links li{position:relative}
+.nav-dropdown{position:absolute;top:100%;left:0;background:rgba(10,22,40,0.97);border:1px solid rgba(240,192,96,0.2);border-radius:8px;padding:8px 0;min-width:160px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:all 0.3s;z-index:200}
+.nav-links li:hover .nav-dropdown{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-dropdown a{display:block;padding:10px 20px;color:rgba(240,192,96,0.8);font-size:13px;letter-spacing:1px;white-space:nowrap}
+.nav-dropdown a::after{display:none}
+.nav-dropdown a:hover{color:var(--gold);background:rgba(240,192,96,0.08)}
 .nav-phone{
   color:var(--gold);font-size:13px;letter-spacing:1px;
   display:flex;align-items:center;gap:6px;flex-shrink:0;
@@ -692,6 +698,12 @@ body{
     <ul class="nav-links">
       <li><a href="#services">服务项目</a></li>
       <li><a href="#products">风水器物</a></li>
+      <li>
+        <a href="javascript:void(0)">在线测试 ▾</a>
+        <div class="nav-dropdown">
+          <a href="http://124.222.57.157" target="_blank">在线算命</a>
+        </div>
+      </li>
       <li><a href="#about">关于卦馆</a></li>
       <li><a href="#contact">联系我们</a></li>
     </ul>
